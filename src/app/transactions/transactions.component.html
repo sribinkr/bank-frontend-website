@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg bg-light container-fluid ">
+    <div class="container-fluid">
+      <a class="navbar-brand text-primary  " routerLink="/">
+        <img src="https://www.pngall.com/wp-content/uploads/1/Bank-PNG-Photo.png" alt="Logo" width="40" height="40"
+          class="d-inline-block align-text-top ">
+  
+        Online Banking App
+  
+      </a>
+     
+      
+    </div>
+  </nav>
+
+  <!-- transaction body -->
+  <div class="container-fluid-mt-2">
+    <h1 class="text-primary" >Transactions</h1>
+    <p style="text-align: justify;" >This is dummy data Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, repellat, eaque, ducimus laborum repudiandae eius rerum eveniet commodi fugit aperiam voluptate? Possimus adipisci, cumque explicabo aspernatur doloremque tempore expedita blanditiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum praesentium ex aliquam quas? Provident, corporis nemo quibusdam, unde nulla deserunt eveniet eaque sint cumque deleniti fugiat, eum possimus ullam esse. Lorem, ipsum dolor sit amet consectetur magnam ab nam nobis facere recusandae. Non ducimus illo soluta explicabo error quam? Inventore consequuntur ab consectetur ipsa.</p>
+
+    <div class="container border p-3-m-5">
+        <div class="row">
+            <div class="col-lg-4">
+                <h1 class="text-success" >Transaction History</h1>
+            </div>
+            <div class="col-lg-4">
+                <label class="mt-3" for="search">Search By</label>&nbsp;
+                <input (keyup)="search($event)" type="text" placeholder="Transaction Type" id="search">
+                <button (click)="generatePDF()" class="btn btn-primary" >Export</button>
+            </div>
+
+            <!-- table -->
+            <table class="table border mt-3 text-center" >
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Transfer Type</th>
+                        <th>From Account</th>
+                        <th>To Account</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let transaction of allTransactions | filter : searchKey :'type' ; let i = index" >
+                        <th>{{i+1}}</th>
+                        <th>{{transaction.type}}</th>
+                        <th>{{transaction.fromAcno}}</th>
+                        <th>{{transaction.toAcno}}</th>
+                        <th>{{transaction.amount}}</th>
+                    </tr>
+                   
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+
+
+  </div>
+  

@@ -1,0 +1,68 @@
+<app-header></app-header>
+
+<div class="container mt-2">
+    <h2>Register Form</h2>
+    <p>This is dummy content : Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque soluta provident, vitae
+        vel inventore quibusdam quisquam quam nulla laboriosam reiciendis eius, adipisci aspernatur accusantium sed cum.
+        Deleniti tempora quam debitis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis omnis id at
+        provident modi quod odit sunt dicta inventore. Minus repellendus assumenda quae sit aut quibusdam quis voluptate
+        voluptas aspernatur! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, fugit dolorem? Quod id
+        tempora dolore quas, porro hic amet quo inventore esse corporis vero doloremque nam, repellat minus perferendis
+        comnt reiciendis! Dolorem in mollitia ducimus esse, enim dolorum alias praesentium adipisci
+        perferendis. Vero blanditiis ab earum iusto?</p>
+
+       <div class="row" >
+        <div class="col-4" >
+
+            <img class="img-fluid" src="https://www.budaconsulting.com/wp-content/uploads/2020/08/FAVPNG_online-banking-business-vector-graphics-mobile-banking_WvqSLx4Z-1492x1536.png" alt="no image">
+
+        </div>
+        <div class="col-8" >
+            <form (ngSubmit)="register()" [formGroup]="registerForm" class="border p-5 mt-5 me-5" action="">
+               
+                <!-- username -->
+                <div>
+                    <input name="uname" formControlName="uname" placeholder="Username" type="text" class="form-control" > 
+                </div>
+                
+                <!-- invalid username -->
+                <div *ngIf="this.registerForm.get('uname')?.errors&&this.registerForm.get('uname')?.touched"
+                 class="text-danger mb-2" >Invalid User Name</div>
+
+                 <!-- account number -->
+                 <div class="mt-4" >
+                    <input name="acno" formControlName="acno" placeholder="Account Number" type="text" class="form-control" > 
+                </div>
+
+                <!-- invalid acno -->
+
+                <div *ngIf="this.registerForm.get('acno')?.errors&&this.registerForm.get('acno')?.touched"
+                 class="text-danger mb-2" >Invalid Account Number</div>
+
+
+                <!-- password -->
+                <div class="mt-4" >
+                    <input name="pswd" formControlName="pswd" placeholder="Password" type="text" class="form-control" >
+                </div>
+                
+                <!-- invalid pswd -->
+                
+                <div *ngIf="this.registerForm.get('pswd')?.errors&&this.registerForm.get('pswd')?.touched"
+                 class="text-danger mb-2" >Invalid Password</div>
+                
+                <div>
+                    <button type="submit" class="btn btn-primary mt-2" >Register</button>
+                    &nbsp;
+                    <span>
+                        Already A user? Click here to <a routerLink="/">Login</a>
+                    </span>
+                </div>
+                
+                     </form>   
+
+        </div>
+
+       </div>
+
+</div>
+
